@@ -16,11 +16,11 @@ const Items = ({items,isMobile}:menu) => {
             {
                 items.map((item:linkItems,index:number) => (
                     isMobile? (
-                        <a key={index} href="#" className="block text-white hover:text-blue-200">
+                        <a key={index} href={item.url} className="block text-white hover:text-blue-200">
                             {item.name}
                         </a>
                     ):(
-                        <a key = {index} href="#" className="text-white hover:text-blue-200">
+                        <a key = {index} href={item.url} className="text-white hover:text-blue-200">
                             {item.name}
                         </a>
                     )
@@ -40,7 +40,7 @@ function Navbar() {
         },
         {
             name: "Create",
-            url:"/"
+            url:"/create"
         },
         {
             name: "View",
@@ -52,7 +52,10 @@ function Navbar() {
     return (
         <nav className="bg-emerald-500 p-4">
             <div className="container mx-auto flex justify-between items-center">
-                <h1 className="text-white font-bold text-lg">HiresPrinte test</h1>
+                <a href={"/"}>
+                    <h1 className="text-white font-bold text-lg">HiresPrinte test</h1>
+                </a>
+
                 <button
                     className="text-white md:hidden"
                     onClick={() => setIsOpen(!isOpen)}
@@ -79,7 +82,6 @@ function Navbar() {
 
             </div>
 
-            {/* Links en pantallas pequeñas */}
             {isOpen && (
                 <div className="md:hidden">
                     <div className="space-y-2 px-4 pt-4 pb-2 bg-emerald-500 text-center">
